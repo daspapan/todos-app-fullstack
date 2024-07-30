@@ -10,8 +10,9 @@ const schema = a.schema({
   Todo: a
     .model({
       content: a.string(),
+      key: a.string(),
     })
-    .authorization((allow) => [allow.guest()]),
+    .authorization((allow) => [allow.guest().to(['read','create','delete'])]),
   Post: a
     .model({
       postId: a.id(),

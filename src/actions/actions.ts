@@ -4,15 +4,18 @@ import { cookieBasedClient } from "@/utils/amplify-utils"
 import { redirect } from "next/navigation";
 import { uuid } from 'uuidv4';
 
-export async function createTodo(formData: FormData){
-    const {data:todo, errors} = await cookieBasedClient.models.Todo.create({
-        content: formData.get("title")?.toString() || ""
-    })
+export async function createTodo({key, content}:{key:string; content: string}){
+    console.log("[Key, Content]", key, content)
 
-    console.log("[Create-Todo]", todo);
-    console.log("[Create-Todo-Error]", errors);
+    const {data:todo, errors} = await cookieBasedClient.models.Todo.create({content, key})
 
-    redirect("/")
+    if(errors !== undefined){
+        console.log("[Create-Todo-Error]", errors);
+    }else{
+        console.log("[Create-Todo]", todo)
+    }
+
+    // redirect("/")
 }
 
 

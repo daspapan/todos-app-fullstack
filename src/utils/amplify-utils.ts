@@ -30,5 +30,5 @@ export const isAuthenticated = async (): Promise<boolean> => {
 export const cookieBasedClient = generateServerClientUsingCookies<Schema>({
     config: outputs,
     cookies,
-    authMode: "userPool", // "iam"
+    authMode: "iam", // "iam"
 });
