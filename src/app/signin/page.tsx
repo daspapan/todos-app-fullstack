@@ -3,7 +3,11 @@ import React from 'react'
 
 const SignInPage = () => {
     return (
-        <AuthClientComponent/>
+        <>
+            <br/>
+            <br/>
+            <AuthClientComponent/>
+        </>
     )
 }
 
