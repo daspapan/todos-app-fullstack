@@ -11,7 +11,23 @@ const schema = a.schema({
     .model({
       content: a.string(),
     })
-    .authorization((allow) => [allow.owner(), allow.guest().to(['read'])]),
+    .authorization((allow) => [allow.guest()]),
+  Post: a
+    .model({
+      postId: a.id(),
+      title: a.string().required(),
+      comments: a.hasMany("Comment", "commentId"),
+      owner: a.string().authorization((allow) => [allow.owner().to(['read', 'delete'])])
+    })
+    .authorization((allow) => [allow.owner(), allow.guest().to(['read'],)]),
+  Comment: a
+    .model({
+      commentId: a.id(),
+      content: a.string().required(),
+      post: a.belongsTo("Post", "commentId"),
+      owner: a.string().authorization((allow) => [allow.owner().to(['read', 'delete'])])
+    })
+    .authorization((allow) => [allow.owner(), allow.guest().to(['read'],)]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
