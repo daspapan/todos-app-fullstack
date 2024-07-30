@@ -13,6 +13,21 @@ npm install --save aws-amplify @aws-amplify/adapter-nextjs @aws-amplify/ui-react
 npm create amplify@latest
 ```
 
+
+# Setup Amplify Authentication
+## Step 1. Create Authenticator Client
+```sh
+"use client"
+
+import { Authenticator } from "@aws-amplify/ui-react";
+
+const AuthClient = () => {
+    return <Authenticator />;
+};
+
+export default AuthClient;
+```
+
 ## Setup CDK Infra
 npm install --save git-branch
 npm install --save-dev @types/git-branch  --legacy-peer-deps
