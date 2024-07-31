@@ -12,7 +12,7 @@ const schema = a.schema({
       content: a.string(),
       key: a.string(),
     })
-    .authorization((allow) => [allow.guest().to(['read','create','delete'])]),
+    .authorization((allow) => [allow.publicApiKey(), allow.guest().to(['read','create','delete'])]),
   Post: a
     .model({
       postId: a.id(),

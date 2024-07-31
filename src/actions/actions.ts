@@ -3,6 +3,12 @@
 import { cookieBasedClient } from "@/utils/amplify-utils"
 import { redirect } from "next/navigation";
 import { uuid } from 'uuidv4';
+import { type Schema } from "@/../../amplify/data/resource";
+
+export async function listAllTodos():Promise<Array<Schema["Todo"]["type"]>>{
+    const {data:todos, errors} = await cookieBasedClient.models.Todo.list()
+    return todos
+}
 
 export async function createTodo({key, content}:{key:string; content: string}){
     console.log("[Key, Content]", key, content)
