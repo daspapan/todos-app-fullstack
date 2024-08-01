@@ -1,14 +1,16 @@
 "use client";
 
-import { Alert, Button, Card } from '@aws-amplify/ui-react';
+import { Alert, Button, Card, TextField } from '@aws-amplify/ui-react';
 import React, { useState } from 'react'
-import { StorageManager } from '@aws-amplify/ui-react-storage';
+import { StorageImage, StorageManager } from '@aws-amplify/ui-react-storage';
 import { createTodo } from '@/actions/actions';
 
 const TodosCreateComponent = () => {
 
     const [isSuccess, setIsSuccess] = useState<boolean>(false);
     const [isError, setIsError] = useState<boolean>(false);
+    const [prevUploadImage, setPrevUploadImage] = useState<string | undefined>("");
+    const [content, setContent] = useState<string>("")
 
     const handleSuccess = () => {
         console.log("Product created successfully.");
@@ -21,6 +23,12 @@ const TodosCreateComponent = () => {
         setIsError(true);
         setIsSuccess(false);
     };
+
+    const createTodoHandler = () => {
+        const key = prevUploadImage;
+        if(!key || !content) return;
+        createTodo({key, content}) ;
+    }
 
     return (
         
@@ -37,6 +45,21 @@ const TodosCreateComponent = () => {
                 </Alert>
             )}
 
+            <TextField
+                label="Content"
+                value={content}
+                onChange={(e) => {
+                  let { value } = e.target;
+                  setContent(value)
+                }}
+            ></TextField>
+
+            {prevUploadImage && <StorageImage path={prevUploadImage} alt={prevUploadImage} width={"100px"}/>}
+
+            {prevUploadImage && (
+                <Button onClick={() => setPrevUploadImage(undefined)}>Remove Image</Button>
+            )}
+
             <StorageManager
                 path={"media/"}
                 acceptedFileTypes={["image/*"]}
@@ -46,11 +69,11 @@ const TodosCreateComponent = () => {
                     const ext = fileParts.pop();
                     return {file, key:`${Date.now()}${fileParts.join('.')}.${ext}`}
                 }}
-                onUploadStart={({key}) => {
+                /* onUploadStart={({key}) => {
                     const content = window.prompt("Todo content");
                     if(!key || !content) return;
                     createTodo({key, content}) ;
-                }}
+                }} */
                 components={{
                     Container({children}){
                         return <Card variation='elevated'>{children}</Card>
@@ -59,7 +82,15 @@ const TodosCreateComponent = () => {
                         return <Button variation='primary' onClick={onClick}>Add Todo and Choose File for Upload</Button>
                     }
                 }}
+                onUploadSuccess={({key}) => {
+                    setPrevUploadImage(key)
+                }}
+                onFileRemove={({key}) => {
+                    setPrevUploadImage(undefined)
+                }}
             />
+
+            <Button type="submit" variation="primary" onClick={() => createTodoHandler()}>Submit</Button>
 
         </Card>
         

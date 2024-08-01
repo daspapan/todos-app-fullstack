@@ -6,6 +6,7 @@ import { Hub } from 'aws-amplify/utils';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
+import LogoComponent from './Logo';
 
 const NavBarComponent = ({isSignedIn}:{isSignedIn:boolean}) => {
 
@@ -50,6 +51,10 @@ const NavBarComponent = ({isSignedIn}:{isSignedIn:boolean}) => {
             label: "Home"
         },
         {
+            href: "/add-todos",
+            label: "Add Todos"
+        },
+        {
             href: "/add",
             label: "Add Title",
             loggedIn: true,
@@ -68,6 +73,8 @@ const NavBarComponent = ({isSignedIn}:{isSignedIn:boolean}) => {
                 alignItems='center'
                 padding={"1rem"}
             >
+                <LogoComponent />
+                
                 <Flex as='nav' alignItems="center" gap="3rem" margin="0 2rem">
                     {routes.map((route) => (
                         <Link key={route.href} href={route.href}>

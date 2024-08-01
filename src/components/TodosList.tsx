@@ -8,6 +8,8 @@ import { listAllTodos } from '@/actions/actions';
 const client = generateClient<Schema>();
 
 import { cookieBasedClient } from "@/utils/amplify-utils"
+import { Flex, Text } from '@aws-amplify/ui-react';
+import { StorageImage } from '@aws-amplify/ui-react-storage';
 
 const TodosListComponent = () => {
 
@@ -38,7 +40,20 @@ const TodosListComponent = () => {
             
             <ul>
                 {todos?.map((todo, idx) => (
-                    <li key={idx}>{todo.content}</li>
+                    <li key={idx}>
+                        <Flex justifyContent={"space-between"}>
+                            <Text>{todo.content}</Text>
+
+                            {todo.key ? (
+                                <StorageImage
+                                    path={todo.key}
+                                    alt={todo.content || ""}
+                                    width={"100px"}
+                                />
+                            ) : null}
+
+                        </Flex>
+                    </li>
                 ))}
             </ul>
         </div>

@@ -21,7 +21,7 @@ export async function createTodo({key, content}:{key:string; content: string}){
         console.log("[Create-Todo]", todo)
     }
 
-    // redirect("/")
+    redirect("/")
 }
 
 

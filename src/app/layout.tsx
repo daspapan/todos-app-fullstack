@@ -4,6 +4,7 @@ import "./globals.css";
 import Auth from "@/components/auth/Auth";
 import NavBarComponent from "@/components/NavBar";
 import { isAuthenticated } from "@/utils/amplify-utils";
+import FooterComponent from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,8 +22,13 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Auth>
+
           <NavBarComponent isSignedIn={await isAuthenticated()} />
+
           {children}
+
+          <FooterComponent/>
+
         </Auth>
       </body>
     </html>
