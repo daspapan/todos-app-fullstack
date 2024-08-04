@@ -1,6 +1,6 @@
 import { Divider, Flex } from '@aws-amplify/ui-react'
 import React from 'react'
-import LogoComponent from './Logo'
+import LogoComponent from './header/Logo'
 
 const FooterComponent = () => {
     return (

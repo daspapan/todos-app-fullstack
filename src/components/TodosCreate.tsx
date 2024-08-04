@@ -75,11 +75,11 @@ const TodosCreateComponent = () => {
                     createTodo({key, content}) ;
                 }} */
                 components={{
-                    Container({children}){
+                    /* Container({children}){
                         return <Card variation='elevated'>{children}</Card>
-                    },
+                    }, */
                     FilePicker({onClick}){
-                        return <Button variation='primary' onClick={onClick}>Add Todo and Choose File for Upload</Button>
+                        return <button onClick={onClick}>Choose File for Upload</button>
                     }
                 }}
                 onUploadSuccess={({key}) => {
@@ -90,7 +90,7 @@ const TodosCreateComponent = () => {
                 }}
             />
 
-            <Button type="submit" variation="primary" onClick={() => createTodoHandler()}>Submit</Button>
+            <button type="submit" onClick={() => createTodoHandler()}>Submit</button>
 
         </Card>
         

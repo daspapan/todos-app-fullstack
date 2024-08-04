@@ -35,3 +35,5 @@ npm install --save-dev @types/git-branch  --legacy-peer-deps
 git init
 git add .
 git commit -m "Initial Commit"
+
+Source https://dev.to/aws/how-to-create-an-app-on-aws-aws-amplify-gen-2-2534

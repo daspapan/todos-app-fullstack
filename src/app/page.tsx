@@ -1,15 +1,15 @@
 
-import TodosListComponent from "@/components/TodosList";
+import TodosListComponent from "@/components/TodosListComponent";
 
 export default async function Home() {
 
   return (
-    <main>
+    <>
 
       <TodosListComponent />
 
       
       
-    </main>
+    </>
   );
 }

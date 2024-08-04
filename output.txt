@@ -1,0 +1,23 @@
+total 2896
+drwxr-xr-x@  22 papandas  staff      704  4 Aug 12:22 .
+drwxr-xr-x    5 papandas  staff      160 30 Jul 09:44 ..
+drwxr-xr-x    3 papandas  staff       96 30 Jul 09:56 .amplify
+-rw-r--r--    1 papandas  staff       40 30 Jul 09:44 .eslintrc.json
+drwxr-xr-x@  14 papandas  staff      448  1 Aug 12:19 .git
+-rw-r--r--@   1 papandas  staff       66 30 Jul 09:44 .gitattributes
+-rw-r--r--    1 papandas  staff      450 30 Jul 14:16 .gitignore
+drwxr-xr-x   12 papandas  staff      384  2 Aug 11:04 .next
+-rw-r--r--    1 papandas  staff      657 30 Jul 10:54 README.md
+drwxr-xr-x    8 papandas  staff      256 30 Jul 20:50 amplify
+-rw-r--r--    1 papandas  staff     9366  4 Aug 12:04 amplify_outputs.json
+-rw-r--r--    1 papandas  staff      201 30 Jul 09:44 next-env.d.ts
+-rw-r--r--    1 papandas  staff       92 30 Jul 09:44 next.config.mjs
+drwxr-xr-x  592 papandas  staff    18944 30 Jul 14:52 node_modules
+-rw-r--r--    1 papandas  staff        0  4 Aug 13:03 output.txt
+-rw-r--r--    1 papandas  staff  1425627 30 Jul 20:49 package-lock.json
+-rw-r--r--    1 papandas  staff      970 30 Jul 20:49 package.json
+-rw-r--r--    1 papandas  staff      135 30 Jul 09:44 postcss.config.mjs
+drwxr-xr-x   15 papandas  staff      480  2 Aug 12:08 public
+drwxr-xr-x    6 papandas  staff      192 30 Jul 10:14 src
+-rw-r--r--    1 papandas  staff      510 30 Jul 09:44 tailwind.config.ts
+-rw-r--r--    1 papandas  staff      578 30 Jul 09:44 tsconfig.json
