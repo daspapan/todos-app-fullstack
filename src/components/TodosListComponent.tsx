@@ -33,7 +33,7 @@ const TodosListComponent = () => {
         listTodos();
     }, [])
     
-    console.log("[ToDoS]:", todos)
+    // console.log("[ToDoS]:", todos)
 
 
     return (
